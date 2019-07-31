@@ -19,4 +19,3 @@ UserState _loginFailed(UserState state, LoginFailedAction action) {
 UserState _startLoading(UserState state, StartLoadingAction action) {
   return state.copyWith(isLoading: true, loginError: false);
 }
-© 2019 GitHub, Inc.
