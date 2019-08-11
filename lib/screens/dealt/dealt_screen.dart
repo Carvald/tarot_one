@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class DealtScreen extends StatefulWidget {
-  DealtScreen({Key key, this.title}) : super(key: key);
+  DealtScreen({Key key, this.title/*,this.pickedList*/}) : super(key: key);
 
   final String title;
+  //final List<Card> pickedList;
 
   @override
   DealtScreenState createState() => DealtScreenState();
