@@ -42,7 +42,7 @@ class LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: EdgeInsets.only(bottom: 150.0),
             child: Image.asset(
-              "assets/images/logo.png", width: 300, height: 150,
+              "assets/images/logo.png", width: 150, height: 100,
             ),
           ),
           getLoadingIndicator(viewModel),

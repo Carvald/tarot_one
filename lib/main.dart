@@ -7,6 +7,7 @@ import 'screens/login/login_screen.dart';
 import 'model/redux/state/app_state.dart';
 import 'model/navigation/navigation.dart';
 import 'screens/home//home_screen.dart';
+import 'screens/dealt//dealt_screen.dart';
 import 'model/redux/reducers/app_reducer.dart';
 
 void main() => runApp(MyApp());
@@ -26,12 +27,15 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Redux Example',
         navigatorKey: Keys.navKey,
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.deepPurple,
         ),
         home: LoginScreen(title: 'Log in'),
         routes: {
           Routes.homeScreen: (context) {
-            return HomeScreen();
+            return HomeScreen(title:'Home Screen');
+          },
+          Routes.dealtScreen: (context) {
+            return DealtScreen();
           },
         },
       ),

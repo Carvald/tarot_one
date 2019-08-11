@@ -6,4 +6,6 @@ class Keys {
 
 class Routes {
   static final homeScreen = "HOME_SCREEN";
+  static final dealtScreen = "DEALT_SCREEN";
+
 }
