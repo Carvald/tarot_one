@@ -26,7 +26,6 @@ class HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-         
           HomeInputForm(onAskDeal: askDeal),
         ],
       ),
@@ -44,6 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
             converter: (store) => HomeViewModel.fromStore(store),
             builder: (_, viewModel) => buildContent(viewModel),
             onDidChange: (viewModel) {
+              print("pasó por aquí home screen");
             },
           )),
     );

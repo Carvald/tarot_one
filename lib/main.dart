@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
             return HomeScreen(title:'Home Screen');
           },
           Routes.dealtScreen: (context) {
-            return DealtScreen();
+            return DealtScreen(title:'Dealt Screen');
           },
         },
       ),

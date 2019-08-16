@@ -41,9 +41,9 @@ class LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(bottom: 150.0),
-            child: Image.asset(
+           /* child: Image.asset(
               "assets/images/logo.png", width: 150, height: 100,
-            ),
+            ),*/
           ),
           getLoadingIndicator(viewModel),
           LoginInputForm(onLoginValidationSuccess: loginUser),
@@ -64,8 +64,10 @@ class LoginScreenState extends State<LoginScreen> {
             builder: (_, viewModel) => buildContent(viewModel),
             onDidChange: (viewModel) {
               if (viewModel.loginError) {
-                showLoginError();
+                print("----pasó por aquí login screen");
               }
+
+              print("pasó por aquí login screen");
             },
           )),
     );

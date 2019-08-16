@@ -14,7 +14,7 @@ class HomeInputForm extends StatefulWidget {
 class HomeInputFormState extends State<HomeInputForm> {
   final formKey = GlobalKey<FormState>();
 
-  void validateInputs() {
+  void callApi() {
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
       widget.onAskDeal("a00","b");
@@ -29,14 +29,6 @@ class HomeInputFormState extends State<HomeInputForm> {
       key: formKey,
       child: Column(
         children: <Widget>[
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0),
-              child: Column(
-                children: <Widget>[
-                  //InputField(title: "Username", controller: usernameController),
-                  //InputField(title: "Password", controller: passwordController),
-                ],
-              )),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -49,9 +41,37 @@ class HomeInputFormState extends State<HomeInputForm> {
                   splashColor: Colors.black,
                   textColor: Colors.white,
                   onPressed: () {
-                    validateInputs();
+                    callApi();
                   },
-                  child: Text('deal'),
+                  child: Text('TDM'),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: MaterialButton(
+                  height: 40,
+                  minWidth: 150,
+                  color: Theme.of(context).primaryColor,
+                  splashColor: Colors.black,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    callApi();
+                  },
+                  child: Text('TE2'),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: MaterialButton(
+                  height: 40,
+                  minWidth: 150,
+                  color: Theme.of(context).primaryColor,
+                  splashColor: Colors.black,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    callApi();
+                  },
+                  child: Text('TE3'),
                 ),
               )
             ],

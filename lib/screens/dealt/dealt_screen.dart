@@ -1,80 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import 'package:tarot_one/model/dealt/home_viewmodel.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:tarot_one/model/redux/state/app_state.dart';
 
 class DealtScreen extends StatefulWidget {
-  DealtScreen({Key key, this.title/*,this.pickedList*/}) : super(key: key);
+  DealtScreen({Key key, this.title}) : super(key: key);
 
   final String title;
-  //final List<Card> pickedList;
+   HomeViewModel viewModel;
 
   @override
   DealtScreenState createState() => DealtScreenState();
 }
 
 class DealtScreenState extends State<DealtScreen> {
-    @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-             Flexible(child:DisplayMenuWidget())
-          ],
-        ),
+
+ Widget buildContent(HomeViewModel viewModel) {
+    widget.viewModel = viewModel;
+    return new Container(
+      child: Column(
+        children: <Widget>[
+        //Text(viewModel.cards.toString()),
+             ShowCardAsset(viewModel.cards.first()),
+             ShowCardAsset(viewModel.cards.second()),
+             ShowCardAsset(viewModel.cards.third()),
+             Reading()
+             
+        ],
       ),
+    );
+  }
+
+ @override
+Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+          child: new StoreConnector<AppState, HomeViewModel>(
+            converter: (store) => HomeViewModel.fromStore(store),
+            builder: (_, viewModel) => buildContent(viewModel),
+            onDidChange: (viewModel) {
+             print("pasó por aquí ehh Dealt screen"); 
+            },
+          )),
+    );
+  }
+
+}
+
+class ShowCardAsset extends StatelessWidget {
+  int index;
+ ShowCardAsset(this.index);
+  @override
+  Widget build(BuildContext context) {
+    AssetImage assetImage = AssetImage("images/"+this.index.toString()+".jpg");
+    Image image = Image(image:assetImage,height: 150,
+    width: 150);
+    return Container(
+      child: image,
     );
   }
 }
 
-class DisplayMenuWidget extends StatefulWidget {  
-  //OnDisplayItemsWidget();//
-  @override
-  DisplayMenuWidgetState createState() => new DisplayMenuWidgetState();
-}
-
-class DisplayMenuWidgetState extends State<DisplayMenuWidget> { 
+class Reading extends StatelessWidget {
  
-DisplayMenuWidgetState();
   @override
   Widget build(BuildContext context) {
-    return new Padding(
-            padding: const EdgeInsets.only(top: 12.0),
-            child: new StaggeredGridView.count(
-              crossAxisCount: 4,
-              staggeredTiles: _staggeredTiles,
-              children: _tiles,
-              mainAxisSpacing: 4.0,
-              crossAxisSpacing: 4.0,
-              padding: const EdgeInsets.all(4.0),
-            ));
+    Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: MaterialButton(
+                  height: 40,
+                  minWidth: 150,
+                  color: Theme.of(context).primaryColor,
+                  splashColor: Colors.black,
+                  textColor: Colors.white,
+                  onPressed: () {
+                   //callApi();
+                  },
+                  child: Text('GYR'),
+                ),
+              );
   }
-
-  List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 2),
-];
-
-List<Widget> _tiles= <Widget>[
-  CallApiWidget(),
- // CallApiButtonWidget(model),
-  //CallApiButtonWidget(model),
-  //CallApiButtonWidget(model),
-];
-}
-
-class CallApiWidget extends StatelessWidget{
-@override
-Widget build (BuildContext context){
- return new RaisedButton(
-      child: new Text(
-        "TF1"
-      ),
-      onPressed:() => print("call"),//model.onIncreaseCounter(model.total),}
-      // onPressed:() => model.onIncreaseCounter(),
-    );    
-}
-
 }
