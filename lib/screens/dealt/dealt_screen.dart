@@ -69,9 +69,7 @@ class Reading extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: MaterialButton(
+     return MaterialButton(
                   height: 40,
                   minWidth: 150,
                   color: Theme.of(context).primaryColor,
@@ -81,7 +79,7 @@ class Reading extends StatelessWidget {
                    //callApi();
                   },
                   child: Text('GYR'),
-                ),
+              
               );
   }
 }
