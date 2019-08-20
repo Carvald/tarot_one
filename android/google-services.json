@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339031548405",
+    "firebase_url": "https://tarotcenter-e2d22.firebaseio.com",
+    "project_id": "tarotcenter-e2d22",
+    "storage_bucket": "tarotcenter-e2d22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339031548405:android:444ec8c595f6c6d7",
+        "android_client_info": {
+          "package_name": "com.example.tarot_one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339031548405-ocvcm1q4bfahegphc8e667oj44hhuthc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tarot_one",
+            "certificate_hash": "c53d069502d7c9cfc9e3198fb288c0bea7112619"
+          }
+        },
+        {
+          "client_id": "339031548405-tsaj8rh7484f8vfoo624u4f57d0e64sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzHhvDmgbxdFaQ-8__QvQOviNi2rdfbLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339031548405-tsaj8rh7484f8vfoo624u4f57d0e64sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
