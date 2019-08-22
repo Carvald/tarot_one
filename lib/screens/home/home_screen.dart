@@ -31,7 +31,7 @@ class HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),  // new
                 child: new CurrentUserProfile(),								// new
               ),
-         // HomeInputForm(onAskDeal: askDeal),
+          HomeInputForm(onAskDeal: askDeal),
         ],
       ),
     );
