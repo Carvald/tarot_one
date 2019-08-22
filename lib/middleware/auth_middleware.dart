@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tarot_one/model/redux/actions/login/auth_actions.dart';
 import 'package:tarot_one/model/redux/state/app_state.dart';
 import 'package:redux/redux.dart';
+//import 'package:tarot_one/model/navigation/navigation.dart';
 
 
 // Recall that middleware is simply functions.
@@ -85,6 +86,7 @@ Middleware<AppState> _createLogInMiddleware() {
         //
         // We also continue the current cycle below by calling next(action).
         store.dispatch(new LogInSuccessful(user: user));
+        //Keys.navKey.currentState.pushNamed(Routes.homeScreen); //???
       } catch (error) {
         store.dispatch(new LogInFail(error));
       }

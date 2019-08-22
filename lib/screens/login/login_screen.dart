@@ -4,6 +4,7 @@ import '../../model/redux/state/app_state.dart';
 import '../../views/login/login_input_form.dart';
 import '../../model/login/login_viewmodel.dart';
 import '../../views/error/error_dialog.dart';
+import '../../screens/login/auth_button_container.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key key, this.title, this.viewModel}) : super(key: key);
@@ -45,6 +46,7 @@ class LoginScreenState extends State<LoginScreen> {
               "assets/images/logo.png", width: 150, height: 100,
             ),*/
           ),
+          GoogleAuthButtonContainer(),
           getLoadingIndicator(viewModel),
           LoginInputForm(onLoginValidationSuccess: loginUser),
         ],
