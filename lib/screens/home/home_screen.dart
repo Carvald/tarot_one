@@ -5,12 +5,14 @@ import 'package:tarot_one/model/redux/state/app_state.dart';
 import 'package:tarot_one/views/home/home_input_form.dart';
 import 'package:tarot_one/model/dealt/home_viewmodel.dart';
 import 'package:tarot_one/screens/home/user_profile.dart';
+import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
 
   final String title;
   HomeViewModel viewModel;
+  
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -27,11 +29,13 @@ class HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-              new Padding(																			// new
-                padding: const EdgeInsets.symmetric(vertical: 16.0),  // new
-                child: new CurrentUserProfile(),								// new
+              new Padding(																		
+                padding: const EdgeInsets.symmetric(vertical: 16.0),  
+                child: new CurrentUserProfile(),								
               ),
           HomeInputForm(onAskDeal: askDeal),
+           
+          
         ],
       ),
     );
@@ -50,7 +54,9 @@ class HomeScreenState extends State<HomeScreen> {
             onDidChange: (viewModel) {
               print("pasó por aquí home screen");
             },
-          )),
+          )
+          ),
+         
     );
   }
 }
