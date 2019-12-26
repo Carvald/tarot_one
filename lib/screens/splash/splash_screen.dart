@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:tarot_one/screens/home/home_screen.dart';
+import 'package:tarot_one/screens/login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -24,7 +24,7 @@ class SplashScreenState extends State<SplashScreen> {
   }
 
   onDoneLoading() async {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen(title: 'Log in'),));
   }
 
   @override

@@ -49,6 +49,7 @@ class LoginScreenState extends State<LoginScreen> {
           GoogleAuthButtonContainer(),
           getLoadingIndicator(viewModel),
           LoginInputForm(onLoginValidationSuccess: loginUser),
+          
         ],
       ),
     );
@@ -72,6 +73,7 @@ class LoginScreenState extends State<LoginScreen> {
               print("pasó por aquí login screen");
             },
           )),
+         
     );
   }
 }

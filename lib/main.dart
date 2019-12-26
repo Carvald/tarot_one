@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           }
         },
       ),*/
-      LoginScreen(title: 'Log in'),
+      SplashScreen(), 
         routes: {
           Routes.homeScreen: (context) {
             return HomeScreen(title:'Home Screen');
@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+    
     
   }
 
