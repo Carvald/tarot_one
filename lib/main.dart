@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           }
         },
       ),*/
-      LoginScreen(), 
+    LoginScreen(title: 'Log in'), 
         routes: {
           Routes.homeScreen: (context) {
             return HomeScreen(title:'Home Screen');
