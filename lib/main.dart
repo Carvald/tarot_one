@@ -12,7 +12,6 @@ import 'model/redux/reducers/app_reducer.dart';
 import 'package:provider/provider.dart';
 import 'package:tarot_one/model/redux/actions/services/login/auth_service.dart';
 import 'package:tarot_one/middleware/auth_middleware.dart';
-import 'screens/splash/splash_screen.dart';
 
 
 //void main() => runApp(MyApp());
@@ -61,7 +60,7 @@ class MyApp extends StatelessWidget {
           }
         },
       ),*/
-      SplashScreen(), 
+      LoginScreen(), 
         routes: {
           Routes.homeScreen: (context) {
             return HomeScreen(title:'Home Screen');
