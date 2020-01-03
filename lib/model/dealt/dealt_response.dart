@@ -1,42 +1,21 @@
-class DealtResponse {
+class DealtResponse extends Object {
+  int id;
   List<Card> cards;
+  DealtResponse({this.id,this.cards});
+  Map toJson() => {"id":id, "name": cards};
+  @override
+  toString() {
+    return cards[0].name.toString() + " " + cards[0].orientation;
+  }
 
-  DealtResponse({
-    this.cards
-  });
-
-@override
-toString(){
-  // for(var i = 0;i<this.cards.length;i++){
-        // return cards[i];
-      return cards[0].name.toString()+" "+cards[0].orientation;  
-   }
-
-   first(){
-  // for(var i = 0;i<this.cards.length;i++){
-        // return cards[i];
-      return cards[0].name;  
-   }
-
-   second(){
-  // for(var i = 0;i<this.cards.length;i++){
-        // return cards[i];
-      return cards[1].name;  
-   }
-   third(){
-  // for(var i = 0;i<this.cards.length;i++){
-        // return cards[i];
-      return cards[2].name;  
-   }
-
-
-
+  getCard(int i) {
+    return cards[i].name;
+  }
 }
 
-class Card 
-{
+class Card extends Object {
   int name;
   String orientation;
   Card(this.name, this.orientation);
+  Map toJson() => {"id": name, "childName": orientation};
 }
-

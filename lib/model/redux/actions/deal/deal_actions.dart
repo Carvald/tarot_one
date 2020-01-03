@@ -19,6 +19,21 @@ ThunkAction dealUser(String username, String date) {
   };
 }
 
+ThunkAction registerDeal(DealtResponse cards) {
+  return (Store store) async {
+    new Future(() async{
+      store.dispatch(new StartLoadingAction()); 
+      saveDeal(cards).then( (dealResponse) {
+        store.dispatch(new StartLoadingAction());
+        Keys.navKey.currentState.pushNamed(Routes.homeScreen);
+      }, onError: (error) {
+        print(error);
+        //store.dispatch(new LoginFailedAction());
+      });
+    });
+  };
+}
+
 class StartLoadingAction {
   StartLoadingAction();
 }

@@ -1,5 +1,7 @@
 
 import '../../../../../model/dealt/dealt_response.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
 import 'dart:math';
 
 Future<DealtResponse> login(String username, String password) async {
@@ -26,8 +28,33 @@ Future<DealtResponse> login(String username, String password) async {
       list.add(card1);
       list.add(card2);
       list.add(card3);
-      DealtResponse response = new DealtResponse(cards: list);
+      DealtResponse response = new DealtResponse(id:8887,cards: list);
       return response;
     }
   });
+}
+
+Future saveDeal(DealtResponse cards) async {
+
+// set up PUT request arguments
+  String url = 'https://if2oqpmcdf.execute-api.us-east-1.amazonaws.com/dev/jugadores';
+  Map<String, String> headers = {"x-api-key": 'dCEhn3TJZ13C8vkMZnQlk76n4X288zRG57pIJmtJ'};
+  //String json = '{"id": 776, "name": "cardText"}';
+  String jlst = jsonEncode(cards);
+  
+  // make PUT request
+  Response response = await put(url, headers: headers, body: jlst);
+  // check the status code for the result
+  print(response.statusCode);
+  // this API passes back the updated item with the id added
+ print(response.body);
+  // {
+  //   "title": "Hello",
+  //   "body": "body text",
+  //   "userId": 1,
+  //   "id": 1
+  // }
+
+return response;
+
 }

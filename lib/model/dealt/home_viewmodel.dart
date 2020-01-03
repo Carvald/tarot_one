@@ -10,12 +10,15 @@ class HomeViewModel {
 
 
   final Function(String, String) askDeal;
+  final Function(DealtResponse) saveDeal;
+
 
   HomeViewModel({
     this.isLoading,
     this.loginError,
     this.cards,
     this.askDeal,
+    this.saveDeal,
   });
 
   static HomeViewModel fromStore(Store<AppState> store) {
@@ -26,6 +29,9 @@ class HomeViewModel {
       askDeal: (String username, String date) {
         store.dispatch(dealUser(username, date));
       },
+      saveDeal: (DealtResponse cards) {
+        store.dispatch(registerDeal(cards));
+      }
     );
   }
 }

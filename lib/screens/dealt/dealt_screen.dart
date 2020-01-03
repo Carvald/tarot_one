@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tarot_one/model/dealt/dealt_response.dart';
 
 import 'package:tarot_one/model/dealt/home_viewmodel.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:tarot_one/model/redux/state/app_state.dart';
+import 'package:tarot_one/views/deal/deal_input_form.dart';
 
 class DealtScreen extends StatefulWidget {
   DealtScreen({Key key, this.title}) : super(key: key);
@@ -16,16 +18,20 @@ class DealtScreen extends StatefulWidget {
 
 class DealtScreenState extends State<DealtScreen> {
 
+  saveDeal(DealtResponse cards) {
+    widget.viewModel.saveDeal(cards);
+  }
+
  Widget buildContent(HomeViewModel viewModel) {
     widget.viewModel = viewModel;
     return new Container(
       child: Column(
         children: <Widget>[
         //Text(viewModel.cards.toString()),
-             ShowCardAsset(viewModel.cards.first()),
-             ShowCardAsset(viewModel.cards.second()),
-             ShowCardAsset(viewModel.cards.third()),
-             Reading()
+             //ShowCardAsset(viewModel.cards.first()),
+             //Reading()
+              DealInputForm(cards: viewModel.cards,onSaveDeal: saveDeal)
+
              
         ],
       ),
@@ -51,35 +57,5 @@ Widget build(BuildContext context) {
 
 }
 
-class ShowCardAsset extends StatelessWidget {
-  int index;
- ShowCardAsset(this.index);
-  @override
-  Widget build(BuildContext context) {
-    AssetImage assetImage = AssetImage("images/"+this.index.toString()+".jpg");
-    Image image = Image(image:assetImage,height: 150,
-    width: 150);
-    return Container(
-      child: image,
-    );
-  }
-}
 
-class Reading extends StatelessWidget {
- 
-  @override
-  Widget build(BuildContext context) {
-     return MaterialButton(
-                  height: 40,
-                  minWidth: 150,
-                  color: Theme.of(context).primaryColor,
-                  splashColor: Colors.black,
-                  textColor: Colors.white,
-                  onPressed: () {
-                   //callApi();
-                  },
-                  child: Text('GYR'),
-              
-              );
-  }
-}
+
