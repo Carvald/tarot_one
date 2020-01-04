@@ -5,17 +5,17 @@ class DealtResponse extends Object {
   Map toJson() => {"id":id, "name": cards};
   @override
   toString() {
-    return cards[0].name.toString() + " " + cards[0].orientation;
+    return cards[0].id.toString() + " " + cards[0].orientation;
   }
 
   getCard(int i) {
-    return cards[i].name;
+    return cards[i].id;
   }
 }
 
 class Card extends Object {
-  int name;
+  int id;
   String orientation;
-  Card(this.name, this.orientation);
-  Map toJson() => {"id": name, "childName": orientation};
+  Card(this.id, this.orientation);
+  Map toJson() => {"id": id, "orientation": orientation};
 }
