@@ -4,8 +4,13 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:tarot_one/model/redux/state/app_state.dart';
 //import 'package:me_suite/selectors/selectors.dart';
 import 'package:redux/redux.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CurrentUserProfile extends StatelessWidget {
+  final FirebaseUser currentUser;
+
+CurrentUserProfile({Key key,this.currentUser}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
   	// This widget will change as the Redux store is updated,

@@ -19,9 +19,9 @@ class LoginViewModel {
 
   static LoginViewModel fromStore(Store<AppState> store) {
     return LoginViewModel(
-      isLoading: store.state.userState.isLoading,
-      loginError: store.state.userState.loginError,
-      user: store.state.userState.user,
+      //isLoading: store.state.userState.isLoading,
+      //loginError: store.state.userState.loginError,
+      //user: store.state.userState.user,
       login: (String username, String password) {
         store.dispatch(loginUser(username, password));
       },

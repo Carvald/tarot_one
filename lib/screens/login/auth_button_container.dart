@@ -7,7 +7,7 @@ import 'package:tarot_one/screens/login/google_auth_button.dart';
 import 'package:redux/redux.dart';
 
 class GoogleAuthButtonContainer extends StatelessWidget {
-  GoogleAuthButtonContainer({Key key}) : super(key: key);
+ // GoogleAuthButtonContainer({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

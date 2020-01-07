@@ -1,8 +1,8 @@
 class DealtResponse extends Object {
-  int id;
+  String id;
   List<Card> cards;
   DealtResponse({this.id,this.cards});
-  Map toJson() => {"id":id, "name": cards};
+  Map toJson() => {"id":id, "data": cards};
   @override
   toString() {
     return cards[0].id.toString() + " " + cards[0].orientation;

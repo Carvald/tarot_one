@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import '../../model/redux/state/app_state.dart';
-import '../../views/login/login_input_form.dart';
+//import '../../views/login/login_input_form.dart';
 import '../../model/login/login_viewmodel.dart';
 import '../../views/error/error_dialog.dart';
 import '../../screens/login/auth_button_container.dart';
@@ -47,8 +47,8 @@ class LoginScreenState extends State<LoginScreen> {
             ),*/
           ),
           GoogleAuthButtonContainer(),
-          getLoadingIndicator(viewModel),
-          LoginInputForm(onLoginValidationSuccess: loginUser),
+          //getLoadingIndicator(viewModel),
+         // LoginInputForm(onLoginValidationSuccess: loginUser),
           
         ],
       ),

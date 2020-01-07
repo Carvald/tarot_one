@@ -5,11 +5,14 @@ import 'package:tarot_one/model/redux/state/app_state.dart';
 import 'package:tarot_one/views/home/home_input_form.dart';
 import 'package:tarot_one/model/dealt/home_viewmodel.dart';
 import 'package:tarot_one/screens/home/user_profile.dart';
-import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
+//import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key, this.title}) : super(key: key);
 
+  final FirebaseUser currentUser;
+  HomeScreen({Key key,this.currentUser, this.title}) : super(key: key);
   final String title;
   HomeViewModel viewModel;
   
@@ -19,8 +22,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  askDeal(String username, String password) {
-    widget.viewModel.askDeal(username, password);
+  askDeal(String userId, int quantity) {
+    widget.viewModel.askDeal(userId, quantity);
   }
   
    Widget buildContent(HomeViewModel viewModel) {
@@ -31,7 +34,7 @@ class HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
               new Padding(																		
                 padding: const EdgeInsets.symmetric(vertical: 16.0),  
-                child: new CurrentUserProfile(),								
+                child: new CurrentUserProfile(currentUser:widget.currentUser),								
               ),
           HomeInputForm(onAskDeal: askDeal),
            

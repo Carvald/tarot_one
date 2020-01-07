@@ -34,8 +34,6 @@ class DealInputFormState extends State<DealInputForm> {
               padding: const EdgeInsets.symmetric(horizontal: 32.0),
               child: Column(
                 children: <Widget>[
-                  Text("Username"),
-                  Text("ext"),
                   ShowCardAsset(widget.cards.getCard(1)),
                   ShowCardAsset(widget.cards.getCard(2)),
                   MaterialButton(
@@ -47,7 +45,7 @@ class DealInputFormState extends State<DealInputForm> {
                   onPressed: () {
                     callApi(widget.cards);
                   },
-                  child: Text('Pedir Lectura'),
+                  child: Text('Pedir Lectura'), // internacinalización OJO
                 )
                   
                 ],

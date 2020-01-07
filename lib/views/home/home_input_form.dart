@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeInputForm extends StatefulWidget {
-  final Function(String, String) onAskDeal;
+  final Function(String, int) onAskDeal;
 
   HomeInputForm({@required this.onAskDeal}) : super();
 
@@ -14,10 +14,10 @@ class HomeInputForm extends StatefulWidget {
 class HomeInputFormState extends State<HomeInputForm> {
   final formKey = GlobalKey<FormState>();
 
-  void callApi() {
+  void callApi(int quantity) {
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
-      widget.onAskDeal("a00","b");
+      widget.onAskDeal("a00",quantity);
     } else {
       setState(() {});
     }
@@ -41,7 +41,7 @@ class HomeInputFormState extends State<HomeInputForm> {
                   splashColor: Colors.black,
                   textColor: Colors.white,
                   onPressed: () {
-                    callApi();
+                    callApi(5);
                   },
                   child: Text('TDM'),
                 ),
@@ -55,7 +55,7 @@ class HomeInputFormState extends State<HomeInputForm> {
                   splashColor: Colors.black,
                   textColor: Colors.white,
                   onPressed: () {
-                    callApi();
+                    callApi(7);
                   },
                   child: Text('TE2'),
                 ),
@@ -69,7 +69,7 @@ class HomeInputFormState extends State<HomeInputForm> {
                   splashColor: Colors.black,
                   textColor: Colors.white,
                   onPressed: () {
-                    callApi();
+                    callApi(3);
                   },
                   child: Text('TE3'),
                 ),

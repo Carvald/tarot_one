@@ -8,10 +8,8 @@ class HomeViewModel {
   final bool loginError;
   final DealtResponse cards;
 
-
-  final Function(String, String) askDeal;
+  final Function(String, int) askDeal;
   final Function(DealtResponse) saveDeal;
-
 
   HomeViewModel({
     this.isLoading,
@@ -23,11 +21,11 @@ class HomeViewModel {
 
   static HomeViewModel fromStore(Store<AppState> store) {
     return HomeViewModel(
-      isLoading: store.state.userState.isLoading,
-      loginError: store.state.userState.loginError,
+      //isLoading: store.state.userState.isLoading,
+     //loginError: store.state.userState.loginError,
       cards: store.state.cardsState.cards,
-      askDeal: (String username, String date) {
-        store.dispatch(dealUser(username, date));
+      askDeal: (String userId, int quantity) {
+        store.dispatch(dealUser(userId, quantity));
       },
       saveDeal: (DealtResponse cards) {
         store.dispatch(registerDeal(cards));
